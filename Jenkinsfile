@@ -1,6 +1,6 @@
 #!groovy
 
-tools {nodejs "NodeJS"}  //name should be similar to name used for installer in the global tool configuration.
+tools {nodejs "NODEJS"}  //name should be similar to name used for installer in the global tool configuration.
 
 properties(
     [
