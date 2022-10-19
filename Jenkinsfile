@@ -1,20 +1,19 @@
 #!groovy
 
+/* groovylint-disable-next-line CompileStatic */
 pipeline {
   agent any
 
   tools { nodejs 'NODEJS' }
 
   stages {
-    stage('Example') {
+    stage('npm install and build') {
       steps {
-        sh 'npm config ls'
-      }
-    }
-
-    stage('install modules') {
-      steps {
-        sh 'npm install'
+        sh '''
+          npm install -g @angular/cli
+          npm install
+          ng build -c production
+        '''
       }
     }
   }
