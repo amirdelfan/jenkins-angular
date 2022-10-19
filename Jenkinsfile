@@ -2,13 +2,19 @@
 
 pipeline {
   agent any
- 
-  tools {nodejs "NODEJS"}
- 
+
+  tools { nodejs 'NODEJS' }
+
   stages {
     stage('Example') {
       steps {
         sh 'npm config ls'
+      }
+    }
+
+    stage('install modules') {
+      steps {
+        sh 'npm install'
       }
     }
   }
