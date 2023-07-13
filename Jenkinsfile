@@ -4,7 +4,12 @@
 pipeline {
   agent { dockerfile true  }
 
-  environment { HOME = '.' }
+  environment {
+    // Override HOME to WORKSPACE value
+    HOME = "${WORKSPACE}"
+    // or override npm's cache directory (~/.npm)
+    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+  }
 
   // tools { nodejs 'NODEJS' }
 
