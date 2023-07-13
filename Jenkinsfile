@@ -5,7 +5,6 @@ pipeline {
   agent {
     dockerfile {
       filename 'Dockerfile'
-      args '-p 3000:3000 -p 5000:5000'
       args '-u 0:0'
     }
   }
@@ -13,15 +12,6 @@ pipeline {
   environment {
       CI = 'true'
   }
-
-  // environment {
-  //   // Override HOME to WORKSPACE value
-  //   HOME = "${WORKSPACE}"
-  //   // or override npm's cache directory (~/.npm)
-  //   NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-  // }
-
-  // tools { nodejs 'NODEJS' }
 
   stages {
     stage('npm install and build') {
