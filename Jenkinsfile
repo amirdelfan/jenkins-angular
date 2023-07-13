@@ -2,10 +2,7 @@
 
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
-  agent {
-    dockerfile true
-    args '-u root:root'
-  }
+  agent { dockerfile true  }
 
   // tools { nodejs 'NODEJS' }
 
@@ -13,8 +10,8 @@ pipeline {
     stage('npm install and build') {
       steps {
         sh '''
-          npm install -g @angular/cli
-          npm install
+          npm install -g @angular/cli --cache=".temp"
+          npm install --cache=".temp"
           ng build -c production
         '''
       }
