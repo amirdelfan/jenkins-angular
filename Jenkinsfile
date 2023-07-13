@@ -10,9 +10,11 @@ pipeline {
   //       }
   // }
   agent {
-    dockerfile true
-    args '-p 3000:3000 -p 5000:5000'
-    args '-u 0:0'
+    docker {
+      file Dockerfile
+      args '-p 3000:3000 -p 5000:5000'
+      args '-u 0:0'
+    }
   }
 
   environment {
