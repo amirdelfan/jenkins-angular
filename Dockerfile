@@ -5,7 +5,7 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y curl
 
 # Install Node.js using the official installation script
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install -y nodejs
 
 # Install ASP.NET Core 3.1 using the official installation script
