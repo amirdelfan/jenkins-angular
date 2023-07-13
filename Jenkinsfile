@@ -9,11 +9,15 @@ pipeline {
   //     args '-u 0:0'
   //       }
   // }
-  agent { dockerfile true  }
+  agent {
+    dockerfile true
+    args '-p 3000:3000 -p 5000:5000'
+    args '-u 0:0'
+  }
 
-    environment {
-        CI = 'true'
-    }
+  environment {
+      CI = 'true'
+  }
 
   // environment {
   //   // Override HOME to WORKSPACE value
