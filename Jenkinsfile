@@ -4,6 +4,8 @@
 pipeline {
   agent { dockerfile true  }
 
+  environment { HOME = '.' }
+
   // tools { nodejs 'NODEJS' }
 
   stages {
