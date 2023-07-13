@@ -9,10 +9,6 @@ pipeline {
     }
   }
 
-  environment {
-      CI = 'true'
-  }
-
   stages {
     stage('npm install and build') {
       steps {
