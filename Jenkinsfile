@@ -2,9 +2,9 @@
 
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
-  agent any
+  agent { dockerfile true }
 
-  tools { nodejs 'NODEJS' }
+  // tools { nodejs 'NODEJS' }
 
   stages {
     stage('npm install and build') {
