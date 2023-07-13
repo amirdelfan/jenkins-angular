@@ -2,14 +2,25 @@
 
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
-  agent { dockerfile true  }
-
-  environment {
-    // Override HOME to WORKSPACE value
-    HOME = "${WORKSPACE}"
-    // or override npm's cache directory (~/.npm)
-    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+  agent {
+        docker {
+      image 'node:6-alpine'
+      args '-p 3000:3000 -p 5000:5000'
+      args '-u 0:0'
+        }
   }
+    environment {
+        CI = 'true'
+    }
+
+  // agent { dockerfile true  }
+
+  // environment {
+  //   // Override HOME to WORKSPACE value
+  //   HOME = "${WORKSPACE}"
+  //   // or override npm's cache directory (~/.npm)
+  //   NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+  // }
 
   // tools { nodejs 'NODEJS' }
 
