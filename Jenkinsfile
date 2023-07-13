@@ -10,8 +10,8 @@ pipeline {
     stage('npm install and build') {
       steps {
         sh '''
-          npm install -g @angular/cli --cache=".temp"
-          npm install --cache=".temp"
+          npm install -g @angular/cli
+          npm install
           ng build -c production
         '''
       }
