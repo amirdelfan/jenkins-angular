@@ -2,11 +2,10 @@
 
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
-  agent { dockerfile true }
-
-  // agent {
-  //   docker { image 'node:18.16.0-alpine' }
-  // }
+  agent {
+    dockerfile true
+    args '-u root:root'
+  }
 
   // tools { nodejs 'NODEJS' }
 
